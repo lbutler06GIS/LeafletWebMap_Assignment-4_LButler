@@ -1,11 +1,75 @@
-# This is the beginning piece of Assignment 4 created with Instructor
-## Leaflet Web Map
-### Laura Butler
+# Assignment 4 - Leaflet Web Maps
+## Laura Butler
 
-A map showing real-time weather radar and alerts from the National Weather 
-Service.
+This assignment uses Leaflet to create web maps using real-time data.
+The weather map began with the instructor walkthrough and was modified for the assignment. 
+The earthquake map was created using USGS earthquake data and Leaflet tutorial documentation. 
+
+
+Maps created for the assignment.
+
+1. Map showing real-time weather radar and alerts from the National Weather Service.
 <https://lbutler06gis.github.io/LeafletWebMap_Assignment-4_LButler/Weather/>
 
-A map showing earthquake data and seismic risk pattern.
+2. Map showing earthquake data and seismic risk pattern.
 <https://lbutler06gis.github.io/LeafletWebMap_Assignment-4_LButler/Earthquake/>
 
+Section 1 = Weather map built following the instructor's demonstration.
+
+            The weather map was created while following the instructor
+            walkthrough. During the walkthrough, I created weather.html and weather.js, 
+            HTML and JavaScript files. The map uses Leaflet with an OpenStreeMap basemap, 
+            real-time weather radar, and active weather alerts from the National Weather Service.
+
+Section 2 = Modifications to the weather map, per assignment instructions, to include
+            additional severity colors and a different basemap. (on my own) 
+
+            I used the weather map created during the instructor walktrhough as the starting point
+            for this section of the assignment. I added colors for Extreme and Minor weather
+            alert severity levels and changed the basemap.          
+
+Section 3 = Earthquake map to include markers that show magnitude and location
+            as well as a popup to display magnitude, location, date/time. (on my own)
+
+            I created a separate Leaflet map using the USGS real-time earthquake GeoJSON feed.
+            Earthquakes are displayed as circle markers and styled by magnitude using
+            different colors and sizes. Each marker has a popup showing the earthquake magnitude,
+            location, and time. I also created a legend showing the magnitude categroies used
+            on the map. 
+
+            The USGS GeoJSON feed provides the earthquake time as a numeric timestamp. When I
+            initially added the time property to the popup, the result was not a readable date 
+            and time. After researching the USGS GeoJSON format, I found that the time value
+            is provided in milliseconds. I went to W3 Schools site and searched JS date methods.
+            I liked the way toLocaleString() converted the time the best, so i used it to convert 
+            the timestamp into a readable date and time. 
+
+### Resources used for Section 3
+
+- USGS GeoJSON Summary Format
+    <https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php>
+    Used to understand the earthquake GeoJSON properties, including magnitude, place, and time.
+
+- Leaflet - Using GeoJSON with Leaflet
+    <https://leafletjs.com/examples/geojson/>
+    Used to research pointToLayer, circle markers, onEachFeature, and adding information from
+    GeoJSON properties to popups.
+
+- Leaflet - Interactive Choropleth Map
+    <https://leafletjs.com/examples/choropleth/>
+    Used as an example for creating the earthquake magnitude legend. The legend code was
+    modified to use my earthquake magnitude categories and colors. 
+    
+- W3 Schools - CSS display: inline-block
+    <https://www.w3schools.com/css/css_inline-block.asp>
+    I also changed the legend symbol display from float:left to display:inline-block sot the 
+    colored symbols aligned correctly with their labels. I researched alternatives to 
+    float:left in W3 Schools and that led me to the inline-block, which gratefully worked. 
+
+- W3 Schools - JavaScript Dates
+    <https://www.w3schools.com/js/js_dates.asp>
+    Used to research converting the USGS earthquake timestamp into a readable date and time for the
+    popup.
+
+
+Section 4 = Weather and Earthquake combination map for assignment bonus points. (on my own)
