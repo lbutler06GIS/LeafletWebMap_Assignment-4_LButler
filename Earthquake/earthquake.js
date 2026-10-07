@@ -24,7 +24,7 @@ var usgsEarthquakeData = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summ
             var magnitude = feature.properties.mag;
             var location = feature.properties.place;
             var time = feature.properties.time;
-            layer.bindPopup('magnitude: " + magnitude);
+            layer.bindPopup('magnitude: ' + magnitude + '<br>Location: ' + location + '<br>Time: ' + time);
         }
 
     }).addTo(map);
