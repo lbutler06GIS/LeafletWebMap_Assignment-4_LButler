@@ -73,3 +73,29 @@ Section 3 = Earthquake map to include markers that show magnitude and location
 
 
 Section 4 = Weather and Earthquake combination map for assignment bonus points. (on my own)
+
+    I combined the weather and earthquake codes written for their individual maps into one Leaflet 
+    map. I used layer groups to organize the weather radar and alerts into a weather layer and the 
+    USGS earthquake data into an earthquakes layer. I added a Leaflet layer control so the user can 
+    turn either layer on or off. I set the layer control to remain expanded so the available choices 
+    are visible instead of only displaying the layer icon.
+
+    I also combined the earthquake magnitude and weather alert severity information into one legend. 
+    The legend shows the earthquake magnitude categories and their marker colors, as well as, the 
+    weather alert severity levels and their colors. 
+
+    While creating the layer control, I had to change how the earthquake GeoJSON was stored. The 
+    earthquake group was originially created to live inside getJSON function, but that meant I could
+    not access it outside of that group. So, I made a new group that lives outside of that group,
+    but holds all that information. This way, I could access it all as a whole to... turn on and off.
+    I feel as though I'm really getting the hang of making groups and understanding how they function. 
+
+    I used that same concept and applied it to the weather alerts/radar group so that I could turn
+    that information group on and off as well. 
+
+    ### Resources used for Section 4
+
+    - Leaflet - Layer Groups and Layers Control
+        <https://leafletjs.com/examples/layers-control/>
+        Used to research layer groups and the Leaflet layer control for turning the weather and 
+        earthquake layers on and off. 
