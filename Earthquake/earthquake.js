@@ -23,7 +23,7 @@ var usgsEarthquakeData = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summ
         onEachFeature: function(feature, layer) {
             var magnitude = feature.properties.mag;
             var location = feature.properties.place;
-            var time = feature.properties.time;
+            var time = new Date(feature.properties.time).toLocaleString();
             layer.bindPopup('magnitude: ' + magnitude + '<br>Location: ' + location + '<br>Time: ' + time);
         }
 
