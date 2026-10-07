@@ -14,6 +14,10 @@ Maps created for the assignment.
 2. Map showing earthquake data and seismic risk pattern.
 <https://lbutler06gis.github.io/LeafletWebMap_Assignment-4_LButler/Earthquake/>
 
+3. Combined map showing earthquake and weather data. Includes updated legend and toggle
+    environment to switch between the two.
+<https://lbutler06gis.github.io/LeafletWebMap_Assignment-4_LButler/Combined/>
+
 Section 1 = Weather map built following the instructor's demonstration.
 
             The weather map was created while following the instructor
