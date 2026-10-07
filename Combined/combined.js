@@ -80,10 +80,33 @@ var basemap = L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 
  weather.addTo(map);
 
 
- //Legend and Toggle Control using Leaflet <https://leafletjs.com/examples/layers-control/>
+ //Toggle Control using Leaflet <https://leafletjs.com/examples/layers-control/>
 
         var overlays = {
                 "Weather": weather,
                 "Earthquakes": earthquakes
         };
         L.control.layers(null, overlays, {collapsed: false}).addTo(map);
+
+//Legend
+            //copied code from earthquakes.js legend section
+const legend = L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+                const div = L.DomUtil.create('div', 'info legend');
+                const colors = ['green', 'yellow', 'orange', 'red'];
+                const labels = ['Less than 2', '2-3.9', '4-5.9', '6+'];
+                for (let i = 0; i < colors.length; i++) {
+                div.innerHTML +=    
+                '<i style="background:' + colors[i] + '"></i> ' + labels[i] + '<br>';
+                }
+
+                //adding code for weather alerts in legend
+                div.innerHTML += '<br><strong>Weather Alert Severity</strong><br>'
+                div.innerHTML += '<i style="background:purple"></i> Extreme<br>';
+                div.innerHTML += '<i style="background:red"></i> Severe<br>';
+                div.innerHTML += '<i style="background:orange"></i> Moderate<br>';
+                div.innerHTML += '<i style="background:hotpink"></i> Minor<br>';
+                return div;
+        };
+
+        legend.addTo(map);
