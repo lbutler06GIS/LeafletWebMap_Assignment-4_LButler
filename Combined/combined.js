@@ -66,7 +66,7 @@ var basemap = L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 
                     var alertColor = 'orange';
                     if (feature.properties.severity === 'Severe') alertColor = 'red';
                     if (feature.properties.severity === 'Extreme') alertColor = 'purple';
-                    if (feature.properties.severity === 'Minor') alertColor = 'hot pink';
+                    if (feature.properties.severity === 'Minor') alertColor = '#e70c7a';
                     return { color: alertColor };
                 },
                     onEachFeature: function(feature, layer) {
@@ -93,11 +93,13 @@ var basemap = L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 
 const legend = L.control({position: 'bottomright'});
         legend.onAdd = function(map) {
                 const div = L.DomUtil.create('div', 'info legend');
+                div.innerHTML += '<strong>Legend</strong><br>';
+                div.innerHTML += '<br><strong>Earthquake Magnitude</strong><br>'
                 const colors = ['green', 'yellow', 'orange', 'red'];
                 const labels = ['Less than 2', '2-3.9', '4-5.9', '6+'];
                 for (let i = 0; i < colors.length; i++) {
-                div.innerHTML +=    
-                '<i style="background:' + colors[i] + '"></i> ' + labels[i] + '<br>';
+
+                    div.innerHTML += '<i style="background:' + colors[i] + '"></i> ' + labels[i] + '<br>';
                 }
 
                 //adding code for weather alerts in legend
@@ -105,7 +107,7 @@ const legend = L.control({position: 'bottomright'});
                 div.innerHTML += '<i style="background:purple"></i> Extreme<br>';
                 div.innerHTML += '<i style="background:red"></i> Severe<br>';
                 div.innerHTML += '<i style="background:orange"></i> Moderate<br>';
-                div.innerHTML += '<i style="background:hotpink"></i> Minor<br>';
+                div.innerHTML += '<i style="background: #e70c7a"></i> Minor<br>';
                 return div;
         };
 

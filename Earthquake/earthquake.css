@@ -7,12 +7,13 @@ body {
     width: 100%;
    }
    
-   copied from leaflet tutorial
+   copied from leaflet tutorial with minor edit so alignment was correct
   
    .legend {
         line-height: 18px;
         color: #555;
         text-align: left;
+        line-height: 24px;
 }
     .legend i {
         width: 18px;
