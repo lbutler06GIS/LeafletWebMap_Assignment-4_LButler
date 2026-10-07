@@ -8,9 +8,11 @@ var basemap = L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 
     //from earthquake.js
     // I edited the code from 'create earthquakes and put them on the map => L.geoJSON(data, {...}) to 
     //create earthquakes and store them in a group/place/box called earthquakes => var earthquakes and then put them on the map => L.geoJSON(data, {...})
+    
+    var earthquakes = L.layerGroup()
     var usgsEarthquakeData = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
     $.getJSON(usgsEarthquakeData, function(data) {
-    var earthquakes = L.geoJSON(data, {
+    L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
             //magnitude was from the usgs provided link and that doc is broken into the individual details for each earthquake
             var magnitude = feature.properties.mag;
@@ -31,8 +33,9 @@ var basemap = L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 
             layer.bindPopup('magnitude: ' + magnitude + '<br>Location: ' + location + '<br>Time: ' + time);
         }
 
-    }).addTo(map);
+    }).addTo(earthquakes);
     });
+    earthquakes.addTo(map);
 
 
 
@@ -83,4 +86,4 @@ var basemap = L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 
                 "Weather": weather,
                 "Earthquakes": earthquakes
         };
-        L.control.layers(null, overlays).addTo(map);
+        L.control.layers(null, overlays, {collapsed: false}).addTo(map);
