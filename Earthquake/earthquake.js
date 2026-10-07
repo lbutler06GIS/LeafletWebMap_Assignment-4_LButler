@@ -29,3 +29,19 @@ var usgsEarthquakeData = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summ
 
     }).addTo(map);
     });
+
+    //code for creating a legend using Leaflet's interactive choropleth map tuturiol for legend creation & lots of google questions
+        const legend = L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+                const div = L.DomUtil.create('div', 'info legend');
+                const colors = ['green', 'yellow', 'orange', 'red'];
+                const labels = ['Less than 2', '2-3.9', '4-5.9', '6+'];
+                for (let i = 0; i < colors.length; i++) {
+                div.innerHTML +=    
+                '<i style="background:' + colors[i] + '"></i> ' + labels[i] + '<br>';
+                }
+                return div;
+        };
+
+        //put legend on the map code
+        legend.addTo(map);
